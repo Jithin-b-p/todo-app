@@ -5,7 +5,10 @@ function Header({ handleLightMode, lightMode }) {
       <h1 className="text-2xl text-white font-bold tracking-[0.8rem] leading-none">
         TODO
       </h1>
-      <button onClick={handleLightMode}>
+      <button
+        onClick={handleLightMode}
+        aria-label={`${lightMode ? "Dark mode" : "Light mode"}`}
+      >
         {lightMode ? (
           <img
             className="transition-all"
