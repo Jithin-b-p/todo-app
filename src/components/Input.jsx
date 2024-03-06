@@ -9,7 +9,10 @@ function Input({ onChange, onKeyDown, inputValue }) {
         disabled
       />
       <input
-        className="flex-1 text-sm bg-inherit text-dark-400 dark:text-light-200 placeholder:text-light-400 dark:placeholder:text-dark-300 placeholder:text-xs"
+        className="flex-1 text-sm bg-inherit text-dark-400 dark:text-light-200 placeholder:text-light-400 dark:placeholder:text-dark-300 placeholder:text-xs focus-visible:outline-dotted focus-visible:outline-2 
+        focus-visible:outline-light-500
+        dark:focus-visible:outline-dark-200
+        focus-visible:outline-offset-[5px]"
         type="text"
         placeholder="Create a new todo..."
         value={inputValue}

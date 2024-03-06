@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-function TodoItem({ item, indx }) {
+function TodoItem({ item, indx, onRemove }) {
   return (
-    <div className="flex items-center gap-3 px-5 py-4 text-xs bg-light-100 dark:bg-dark-600">
+    <div className="flex items-center gap-3 px-5 py-4 text-xs bg-light-100 dark:bg-dark-600 first:rounded-t-md">
       <label className="sr-only" htmlFor={`itemcheck-${indx}`}>
         list item checked
       </label>
@@ -32,11 +32,12 @@ function TodoItem({ item, indx }) {
         {item}
       </label>
       <img
-        className="ml-auto"
+        className="ml-auto cursor-pointer"
         src="/images/icon-cross.svg"
         width={12}
         height={12}
         alt=""
+        onClick={() => onRemove(indx)}
       />
     </div>
   );

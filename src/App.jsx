@@ -20,8 +20,14 @@ function App() {
     document.documentElement.classList.toggle("dark");
   };
 
+  const handleOnRemove = (removeIndx) => {
+    setTodo((todo) => {
+      return todo.filter((input, indx) => indx !== removeIndx);
+    });
+  };
+
   const handleKeyDown = (e) => {
-    if (e.keyCode === 13) {
+    if (e.keyCode === 13 && inputValue.length !== 0) {
       setTodo((todo) => [...todo, inputValue]);
       setInputValue("");
     }
@@ -36,7 +42,11 @@ function App() {
           onKeyDown={handleKeyDown}
           inputValue={inputValue}
         />
-        <TodoList todolist={todo} />
+        <TodoList todolist={todo} onRemove={handleOnRemove} />
+
+        <p className="py-20 text-center text-light-400 dark:text-dark-500">
+          Drag and drop to reorder list
+        </p>
       </div>
     </div>
   );
