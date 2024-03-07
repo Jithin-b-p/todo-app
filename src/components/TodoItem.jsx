@@ -22,10 +22,7 @@ function TodoItem({ item, onRemove, onComplete }) {
         id={`itemcheck-${item.id}`}
         className="absolute appearance-none peer"
         type="checkbox"
-        onChange={(e) => {
-          console.log(e);
-          onComplete(item.id);
-        }}
+        onChange={() => onComplete(item.id)}
         checked={item.status}
         tabIndex={-1}
       />
@@ -44,7 +41,6 @@ function TodoItem({ item, onRemove, onComplete }) {
         peer-hover/label:bg-gradient-to-br
         peer-hover/label:from-primaryCyan peer-hover/label:to-primaryPurple"
         htmlFor={`itemcheck-${item.id}`}
-        aria-hidden
         onKeyDown={(e) => {
           if (e.key === "Enter") {
             onComplete(item.id);
@@ -58,10 +54,9 @@ function TodoItem({ item, onRemove, onComplete }) {
         className="absolute left-[1.56rem] top-[1.35rem] md:left-[2.45rem] md:top-[1.6rem] cursor-pointer w-3 h-3 bg-no-repeat bg-[url('/images/icon-check.svg')] invisible peer-[:checked]:visible"
         aria-hidden
       />
-
       <label
         htmlFor={`itemcheck-${item.id}`}
-        className="cursor-pointer text-light-500 dark:text-dark-300 peer-[:checked]:line-through peer-[:checked]:text-light-300 dark:peer-[:checked]:text-dark-400"
+        className="cursor-pointer text-light-500 dark:text-dark-300 peer-[:checked]:line-through peer-[:checked]:text-light-400 dark:peer-[:checked]:text-dark-400"
       >
         {item.task}
       </label>

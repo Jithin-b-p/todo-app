@@ -39,16 +39,16 @@ function TodoList({ todolist, onRemove, onComplete, onClear }) {
           />
         ))}
       </SortableContext>
-      <div className="flex items-center justify-between px-6 py-4 text-xs rounded-b-md bg-light-100 dark:bg-dark-600 text-light-400 dark:text-dark-400 md:text-sm">
+      <div className="flex items-center justify-between px-6 py-4 text-xs rounded-b-md bg-light-100 dark:bg-dark-600 text-light-500 dark:text-dark-400 md:text-sm">
         <p>
           {todolist.filter((item) => item.status === false).length} items left
         </p>
-        <div className="absolute md:static bottom-[-4.5rem] inset-x-0 rounded-md flex !border-t-0 gap-4 justify-center items-center px-5 md:px-0 md:py-0 py-4 text-base bg-light-100 dark:bg-dark-600 text-light-400 dark:text-dark-400">
+        <div className="absolute md:static bottom-[-4.5rem] inset-x-0 rounded-md flex !border-t-0 gap-4 justify-center items-center px-5 md:px-0 md:py-0 py-4 text-base bg-light-100 dark:bg-dark-600 text-light-500 dark:text-dark-400 font-bold">
           <span
             className={`${
               filterState.all
                 ? "text-primaryBlue"
-                : "hover:text-light-500 dark:hover:text-dark-100"
+                : "hover:text-dark-700 dark:hover:text-dark-100"
             } cursor-pointer transition-colors focus-visible:outline-dashed outline-2 outline-light-500 outline-offset-2 dark:outline-dark-100`}
             onClick={() => {
               setFilterState({
@@ -70,7 +70,7 @@ function TodoList({ todolist, onRemove, onComplete, onClear }) {
             className={`${
               filterState.active
                 ? "text-primaryBlue"
-                : "hover:text-light-500 dark:hover:text-dark-100"
+                : "hover:text-dark-700 dark:hover:text-dark-100"
             } cursor-pointer focus-visible:outline-dashed outline-2 outline-light-500 outline-offset-2 transition-colors dark:outline-dark-100`}
             onClick={() => {
               setFilterState({
@@ -96,7 +96,7 @@ function TodoList({ todolist, onRemove, onComplete, onClear }) {
             className={`${
               filterState.completed
                 ? "text-primaryBlue"
-                : "hover:text-light-500 dark:hover:text-dark-100"
+                : "hover:text-dark-700 dark:hover:text-dark-100"
             } cursor-pointer focus-visible:outline-dashed outline-2 outline-light-500 outline-offset-2  transition-colors dark:outline-dark-100`}
             onClick={() => {
               setFilterState({
@@ -121,7 +121,7 @@ function TodoList({ todolist, onRemove, onComplete, onClear }) {
         </div>
         <span
           onClick={onClear}
-          className="transition-colors cursor-pointer dark:hover:text-dark-100 focus-visible:outline-dashed outline-2 outline-light-500 outline-offset-2 dark:outline-dark-100 hover:text-light-50"
+          className="transition-colors cursor-pointer dark:hover:text-dark-100 focus-visible:outline-dashed outline-2 outline-light-500 outline-offset-2 dark:outline-dark-100 hover:text-dark-700"
           tabIndex={0}
           onKeyDown={(e) => {
             if (e.key === "Enter") {

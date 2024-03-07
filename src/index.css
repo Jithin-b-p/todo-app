@@ -4,23 +4,23 @@
 
 @font-face {
   font-family: "Josefin Sans";
-  src: url("font/JosefinSansBold.woff2") format("woff2"),
-    url("font/JosefinSansBold.woff") format("woff");
+  src: url("/font/JosefinSansBold.woff2") format("woff2"),
+    url("/font/JosefinSansBold.woff") format("woff");
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Josefin Sans";
-  src: url("font/JosefinSansRegular.woff2") format("woff2"),
-    url("font/JosefinSansRegular.woff") format("woff");
+  src: url("/font/JosefinSansRegular.woff2") format("woff2"),
+    url("/font/JosefinSansRegular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
 }
 
 @layer base {
   :root {
-    --color-primary-blue: 220 98% 61%;
+    --color-primary-blue: 220 98% 41%;
     --color-primary-cyan: 192 100% 67%;
     --color-primary-purple: 280 87% 65%;
 
