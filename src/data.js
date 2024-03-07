@@ -1,31 +1,31 @@
 export const pretodolist = [
   {
-    id: 1,
+    id: "1",
     task: "Complete online JavaScript course",
     status: true,
   },
   {
-    id: 2,
+    id: "2",
     task: "Jog around the park 3x",
     status: false,
   },
   {
-    id: 3,
+    id: "3",
     task: "10 minutes meditation",
     status: false,
   },
   {
-    id: 4,
+    id: "4",
     task: "Read for 1 hour",
     status: false,
   },
   {
-    id: 5,
+    id: "5",
     task: "Pick up groceries",
     status: false,
   },
   {
-    id: 6,
+    id: "6",
     task: "Complete Todo App on Frontend Mentor",
     status: false,
   },

@@ -1,12 +1,31 @@
+import { useSortable } from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
+
 /* eslint-disable react/prop-types */
 function TodoItem({ item, onRemove, onComplete }) {
+  const { attributes, listeners, setNodeRef, transform, transition } =
+    useSortable({ id: item.id });
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+  };
   return (
-    <div className="relative flex items-center gap-3 px-5 py-4 text-xs md:py-4 md:text-lg md:gap-6 md:px-8 bg-light-100 dark:bg-dark-600 first:rounded-t-md">
+    <div
+      className="relative flex items-center gap-3 px-5 py-4 text-xs md:py-4 md:text-lg md:gap-6 md:px-8 bg-light-100 dark:bg-dark-600 first:rounded-t-md touch-none"
+      ref={setNodeRef}
+      style={style}
+      {...attributes}
+      {...listeners}
+    >
       <input
         id={`itemcheck-${item.id}`}
         className="absolute appearance-none peer"
         type="checkbox"
-        onChange={() => onComplete(item.id)}
+        onChange={(e) => {
+          console.log(e);
+          onComplete(item.id);
+        }}
         checked={item.status}
         tabIndex={-1}
       />

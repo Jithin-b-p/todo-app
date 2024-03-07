@@ -10,7 +10,9 @@ function Input({ onChange, onKeyDown, inputValue }) {
         aria-hidden
       />
       <input
-        className="flex-1 text-sm bg-inherit text-dark-400 dark:text-light-200 
+        className="flex-1 text-sm 
+        md:text-lg
+        bg-inherit text-dark-400 dark:text-light-200 
       placeholder:text-light-400 dark:placeholder:text-dark-300 placeholder:text-xs
         md:placeholder:text-lg 
         md:leading-none

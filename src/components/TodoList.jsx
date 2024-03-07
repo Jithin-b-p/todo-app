@@ -2,6 +2,10 @@
 
 import { useState } from "react";
 import TodoItem from "./TodoItem";
+import {
+  SortableContext,
+  verticalListSortingStrategy,
+} from "@dnd-kit/sortable";
 
 const initalFilterState = {
   all: true,
@@ -10,8 +14,10 @@ const initalFilterState = {
 };
 
 function TodoList({ todolist, onRemove, onComplete, onClear }) {
+  // state to keep track of the filter preference.
   const [filterState, setFilterState] = useState(initalFilterState);
   console.log(todolist);
+  // creating a new list of tasks based on the filter prefered.
   const newFilteredList = filterState.active
     ? todolist.filter((item) => item.status === false)
     : filterState.completed
@@ -20,14 +26,19 @@ function TodoList({ todolist, onRemove, onComplete, onClear }) {
 
   return (
     <main className="relative divide-y-[.01rem] rounded-md divide-light-200 dark:divide-dark-500 shadow-xl">
-      {newFilteredList.map((item) => (
-        <TodoItem
-          key={item.id}
-          item={item}
-          onRemove={onRemove}
-          onComplete={onComplete}
-        />
-      ))}
+      <SortableContext
+        items={newFilteredList}
+        strategy={verticalListSortingStrategy}
+      >
+        {newFilteredList.map((item) => (
+          <TodoItem
+            key={item.id}
+            item={item}
+            onRemove={onRemove}
+            onComplete={onComplete}
+          />
+        ))}
+      </SortableContext>
       <div className="flex items-center justify-between px-6 py-4 text-xs rounded-b-md bg-light-100 dark:bg-dark-600 text-light-400 dark:text-dark-400 md:text-sm">
         <p>
           {todolist.filter((item) => item.status === false).length} items left
@@ -38,7 +49,7 @@ function TodoList({ todolist, onRemove, onComplete, onClear }) {
               filterState.all
                 ? "text-primaryBlue"
                 : "hover:text-light-500 dark:hover:text-dark-100"
-            } cursor-pointer focus-visible:outline-dashed outline-2 outline-light-500 outline-offset-2 dark:outline-dark-100`}
+            } cursor-pointer transition-colors focus-visible:outline-dashed outline-2 outline-light-500 outline-offset-2 dark:outline-dark-100`}
             onClick={() => {
               setFilterState({
                 ...initalFilterState,
@@ -60,7 +71,7 @@ function TodoList({ todolist, onRemove, onComplete, onClear }) {
               filterState.active
                 ? "text-primaryBlue"
                 : "hover:text-light-500 dark:hover:text-dark-100"
-            } cursor-pointer focus-visible:outline-dashed outline-2 outline-light-500 outline-offset-2 dark:outline-dark-100`}
+            } cursor-pointer focus-visible:outline-dashed outline-2 outline-light-500 outline-offset-2 transition-colors dark:outline-dark-100`}
             onClick={() => {
               setFilterState({
                 ...initalFilterState,
@@ -86,7 +97,7 @@ function TodoList({ todolist, onRemove, onComplete, onClear }) {
               filterState.completed
                 ? "text-primaryBlue"
                 : "hover:text-light-500 dark:hover:text-dark-100"
-            } cursor-pointer focus-visible:outline-dashed outline-2 outline-light-500 outline-offset-2 dark:outline-dark-100`}
+            } cursor-pointer focus-visible:outline-dashed outline-2 outline-light-500 outline-offset-2  transition-colors dark:outline-dark-100`}
             onClick={() => {
               setFilterState({
                 ...initalFilterState,
@@ -110,7 +121,7 @@ function TodoList({ todolist, onRemove, onComplete, onClear }) {
         </div>
         <span
           onClick={onClear}
-          className="cursor-pointer dark:hover:text-dark-100 focus-visible:outline-dashed outline-2 outline-light-500 outline-offset-2 dark:outline-dark-100 hover:light-200 dark:hover:dark-100"
+          className="transition-colors cursor-pointer dark:hover:text-dark-100 focus-visible:outline-dashed outline-2 outline-light-500 outline-offset-2 dark:outline-dark-100 hover:text-light-50"
           tabIndex={0}
           onKeyDown={(e) => {
             if (e.key === "Enter") {
