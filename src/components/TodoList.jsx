@@ -16,7 +16,7 @@ const initalFilterState = {
 function TodoList({ todolist, onRemove, onComplete, onClear }) {
   // state to keep track of the filter preference.
   const [filterState, setFilterState] = useState(initalFilterState);
-  console.log(todolist);
+
   // creating a new list of tasks based on the filter prefered.
   const newFilteredList = filterState.active
     ? todolist.filter((item) => item.status === false)

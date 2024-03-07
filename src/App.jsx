@@ -8,7 +8,6 @@ import { generateRandomID } from "./generateId";
 import {
   DndContext,
   KeyboardSensor,
-  MouseSensor,
   PointerSensor,
   TouchSensor,
   closestCorners,
@@ -50,7 +49,6 @@ function App() {
   };
 
   const handleCompelete = (itemId) => {
-    console.log("checkbox");
     setTodo(
       todo.map((item) => {
         if (item.id === itemId) {
@@ -68,7 +66,6 @@ function App() {
   const getTaskPosition = (id) => todo.findIndex((item) => item.id === id);
 
   const handleDragEnd = (event) => {
-    console.log(event);
     const { active, over } = event;
 
     if (active.id === over.id) return;
@@ -79,10 +76,6 @@ function App() {
 
       return arrayMove(todo, originalPos, newPos);
     });
-  };
-
-  const handleDragStart = (event) => {
-    console.log(event);
   };
 
   const sensors = useSensors(
@@ -108,7 +101,6 @@ function App() {
         />
         <DndContext
           sensors={sensors}
-          onDragStart={handleDragStart}
           onDragEnd={handleDragEnd}
           collisionDetection={closestCorners}
         >
