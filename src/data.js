@@ -1,8 +1,32 @@
 export const pretodolist = [
-  "Complete online JavaScript course",
-  "Jog around the park 3x",
-  "10 minutes meditation",
-  "Read for 1 hour",
-  "Pick up groceries",
-  "Complete Todo App on Frontend Mentor",
+  {
+    id: 1,
+    task: "Complete online JavaScript course",
+    status: false,
+  },
+  {
+    id: 2,
+    task: "Jog around the park 3x",
+    status: false,
+  },
+  {
+    id: 3,
+    task: "10 minutes meditation",
+    status: false,
+  },
+  {
+    id: 4,
+    task: "Read for 1 hour",
+    status: false,
+  },
+  {
+    id: 5,
+    task: "Pick up groceries",
+    status: false,
+  },
+  {
+    id: 6,
+    task: "Complete Todo App on Frontend Mentor",
+    status: false,
+  },
 ];

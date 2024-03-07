@@ -1,14 +1,16 @@
 /* eslint-disable react/prop-types */
-function TodoItem({ item, indx, onRemove }) {
+function TodoItem({ item, onRemove, onComplete }) {
   return (
     <div className="relative flex items-center gap-3 px-5 py-4 text-xs bg-light-100 dark:bg-dark-600 first:rounded-t-md">
       <input
-        id={`itemcheck-${indx}`}
+        id={`itemcheck-${item.id}`}
         className="absolute appearance-none peer"
         type="checkbox"
+        onChange={() => onComplete(item.id)}
+        checked={item.status}
       />
       <label
-        htmlFor={`itemcheck-${indx}`}
+        htmlFor={`itemcheck-${item.id}`}
         className="absolute top-[1.09rem] left-[1.33rem] w-[1.11rem] h-[1.11rem] bg-light-100 dark:bg-dark-600 cursor-pointer peer-[:checked]:invisible rounded-full peer/label"
         aria-hidden
       ></label>
@@ -19,21 +21,21 @@ function TodoItem({ item, indx, onRemove }) {
         rounded-full cursor-pointer  border-light-200 peer-[:checked]:border-none dark:border-dark-500 peer-[:checked]:bg-gradient-to-br peer-[:checked]:from-primaryCyan peer-[:checked]:to-primaryPurple
         peer-hover/label:bg-gradient-to-br
         peer-hover/label:from-primaryCyan peer-hover/label:to-primaryPurple"
-        htmlFor={`itemcheck-${indx}`}
+        htmlFor={`itemcheck-${item.id}`}
         aria-hidden
       ></label>
 
       <label
-        htmlFor={`itemcheck-${indx}`}
+        htmlFor={`itemcheck-${item.id}`}
         className="absolute left-[1.56rem] top-[1.35rem] cursor-pointer w-3 h-3 bg-no-repeat bg-[url('/images/icon-check.svg')] invisible peer-[:checked]:visible"
         aria-hidden
       />
 
       <label
-        htmlFor={`itemcheck-${indx}`}
-        className="cursor-pointer text-light-600 dark:text-dark-300"
+        htmlFor={`itemcheck-${item.id}`}
+        className="cursor-pointer text-light-500 dark:text-dark-300 peer-[:checked]:line-through peer-[:checked]:text-light-300 dark:peer-[:checked]:text-dark-400"
       >
-        {item}
+        {item.task}
       </label>
       <img
         className="ml-auto cursor-pointer"
@@ -41,7 +43,7 @@ function TodoItem({ item, indx, onRemove }) {
         width={12}
         height={12}
         alt=""
-        onClick={() => onRemove(indx)}
+        onClick={() => onRemove(item.id)}
       />
     </div>
   );
