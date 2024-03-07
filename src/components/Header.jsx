@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 function Header({ handleLightMode, lightMode }) {
   return (
-    <header className="flex items-center justify-between mb-5">
-      <h1 className="text-2xl text-white font-bold tracking-[0.8rem] leading-none cursor-not-allowed">
+    <header className="flex items-center justify-between mb-5 md:mb-6">
+      <h1 className="text-2xl md:text-4xl text-light-100 font-bold tracking-[0.8rem] leading-none md:tracking-[1.2rem] cursor-not-allowed">
         TODO
       </h1>
       <button

@@ -2,7 +2,7 @@ export const pretodolist = [
   {
     id: 1,
     task: "Complete online JavaScript course",
-    status: false,
+    status: true,
   },
   {
     id: 2,

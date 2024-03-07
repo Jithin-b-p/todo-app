@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 function TodoItem({ item, onRemove, onComplete }) {
   return (
-    <div className="relative flex items-center gap-3 px-5 py-4 text-xs bg-light-100 dark:bg-dark-600 first:rounded-t-md">
+    <div className="relative flex items-center gap-3 px-5 py-4 text-xs md:py-4 md:text-lg md:gap-6 md:px-8 bg-light-100 dark:bg-dark-600 first:rounded-t-md">
       <input
         id={`itemcheck-${item.id}`}
         className="absolute appearance-none peer"
@@ -12,11 +12,11 @@ function TodoItem({ item, onRemove, onComplete }) {
       />
       <label
         htmlFor={`itemcheck-${item.id}`}
-        className="absolute top-[1.09rem] left-[1.33rem] w-[1.11rem] h-[1.11rem] bg-light-100 dark:bg-dark-600 cursor-pointer peer-[:checked]:invisible rounded-full peer/label"
+        className="absolute top-[1.09rem] left-[1.33rem] md:left-[2.15rem] md:top-[1.25rem] w-[1.11rem] h-[1.11rem] md:w-[1.2rem] md:h-[1.2rem] bg-light-100 dark:bg-dark-600 cursor-pointer peer-[:checked]:invisible rounded-full peer/label"
         aria-hidden
       ></label>
       <label
-        className="block w-5 h-5 bg-center bg-no-repeat 
+        className="block w-5 h-5 md:w-6 md:h-6 bg-center bg-no-repeat 
         focus-visible:outline-dashed
         outline-dark-700 dark:outline-light-100 outline-2 outline-offset-2
         bg-light-200 dark:bg-dark-500 
@@ -36,7 +36,7 @@ function TodoItem({ item, onRemove, onComplete }) {
 
       <label
         htmlFor={`itemcheck-${item.id}`}
-        className="absolute left-[1.56rem] top-[1.35rem] cursor-pointer w-3 h-3 bg-no-repeat bg-[url('/images/icon-check.svg')] invisible peer-[:checked]:visible"
+        className="absolute left-[1.56rem] top-[1.35rem] md:left-[2.45rem] md:top-[1.6rem] cursor-pointer w-3 h-3 bg-no-repeat bg-[url('/images/icon-check.svg')] invisible peer-[:checked]:visible"
         aria-hidden
       />
 
@@ -47,7 +47,7 @@ function TodoItem({ item, onRemove, onComplete }) {
         {item.task}
       </label>
       <img
-        className="ml-auto cursor-pointer focus-visible:outline-dashed outline-2 outline-offset-4 outline-light-500 dark:outline-dark-100"
+        className="ml-auto cursor-pointer focus-visible:outline-dashed outline-2 outline-offset-4 outline-light-500 dark:outline-dark-100 md:w-4"
         src="/images/icon-cross.svg"
         width={12}
         height={12}
