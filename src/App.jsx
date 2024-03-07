@@ -29,7 +29,7 @@ function App() {
   };
 
   const handleKeyDown = (e) => {
-    if (e.keyCode === 13 && inputValue.length !== 0) {
+    if (e.key === "Enter" && inputValue.length !== 0) {
       setTodo((todo) => [
         ...todo,
         { id: generateRandomID(), task: inputValue, status: false },

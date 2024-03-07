@@ -8,6 +8,7 @@ function TodoItem({ item, onRemove, onComplete }) {
         type="checkbox"
         onChange={() => onComplete(item.id)}
         checked={item.status}
+        tabIndex={-1}
       />
       <label
         htmlFor={`itemcheck-${item.id}`}
@@ -16,6 +17,8 @@ function TodoItem({ item, onRemove, onComplete }) {
       ></label>
       <label
         className="block w-5 h-5 bg-center bg-no-repeat 
+        focus-visible:outline-dashed
+        outline-dark-700 dark:outline-light-100 outline-2 outline-offset-2
         bg-light-200 dark:bg-dark-500 
         hover:bg-gradient-to-br hover:from-primaryCyan hover:to-primaryPurple p-[.1rem]
         rounded-full cursor-pointer  border-light-200 peer-[:checked]:border-none dark:border-dark-500 peer-[:checked]:bg-gradient-to-br peer-[:checked]:from-primaryCyan peer-[:checked]:to-primaryPurple
@@ -23,6 +26,12 @@ function TodoItem({ item, onRemove, onComplete }) {
         peer-hover/label:from-primaryCyan peer-hover/label:to-primaryPurple"
         htmlFor={`itemcheck-${item.id}`}
         aria-hidden
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            onComplete(item.id);
+          }
+        }}
+        tabIndex={0}
       ></label>
 
       <label
@@ -38,12 +47,18 @@ function TodoItem({ item, onRemove, onComplete }) {
         {item.task}
       </label>
       <img
-        className="ml-auto cursor-pointer"
+        className="ml-auto cursor-pointer focus-visible:outline-dashed outline-2 outline-offset-4 outline-light-500 dark:outline-dark-100"
         src="/images/icon-cross.svg"
         width={12}
         height={12}
         alt=""
         onClick={() => onRemove(item.id)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            onRemove(item.id);
+          }
+        }}
+        tabIndex={0}
       />
     </div>
   );
