@@ -35,7 +35,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [Click here](https://www.frontendmentor.io/solutions/todo-app-using-reacttailwind-QlDV1Jsifj)
 - Live Site URL: [Click here](https://jithin-b-p-todoapp.netlify.app/)
 
 ## My process

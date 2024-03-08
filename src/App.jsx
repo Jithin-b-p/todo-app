@@ -91,7 +91,7 @@ function App() {
   );
 
   return (
-    <div className="flex justify-center items-center w-full min-h-svh bg-light-200 dark:bg-dark-700 bg-[url('/images/bg-mobile-light.jpg')] dark:bg-[url('/images/bg-mobile-dark.jpg')] min-[376px]:bg-[url('/images/bg-desktop-light.jpg')] dark:min-[376px]:bg-[url('/images/bg-desktop-dark.jpg')] bg-no-repeat bg-top md:pt-7">
+    <div className="flex justify-center items-center w-full min-h-svh bg-light-200 dark:bg-dark-700 bg-[url('/images/bg-mobile-light.webp')] dark:bg-[url('/images/bg-mobile-dark.webp')] min-[376px]:bg-[url('/images/bg-desktop-light.webp')] dark:min-[376px]:bg-[url('/images/bg-desktop-dark.webp')] bg-no-repeat bg-top md:pt-7">
       <div className="flex flex-col gap-4 md:gap-6 w-[min(88%,34rem)] pt-12">
         <Header handleLightMode={handleLightMode} lightMode={lightMode} />
         <Input
